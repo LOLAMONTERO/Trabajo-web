@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="Productos.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Tienda de Wooting (Beta)</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/contacto">contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="productos-container">
+            <div class="producto" id="producto1">
+                <img src="img/Wooting 80HE.png" alt="Producto 1" />
+                <h3>Wooting 80HE</h3>
+                <p>Precio: $500</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button onclick="agregarAlCarrito('Wooting 80HE', 500)">Agregar al Carrito</button>
+            </div>
+            <div class="producto" id="producto2">
+                <img src="img/WOOTING 60HE+.png" alt="Producto 2" />
+                <h3>WOOTING 60HE+</h3>
+                <p>Precio: $500</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button onclick="agregarAlCarrito('WOOTING 60HE+', 500)">Agregar al Carrito</button>
+            </div>
+            <div class="producto" id="producto3">
+                <img src="img/WOOTING TWO HE.png" alt="Producto 3" />
+                <h3>WOOTING TWO HE</h3>
+                <p>Precio: $500</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button onclick="agregarAlCarrito('WOOTING TWO HE', 500)">Agregar al Carrito</button>
+
+                <div class="producto" id="producto4">
+                    <img src="img/WOOTING 60HE+ module.png" alt="Producto 4" />
+                    <h3>WOOTING module</h3>
+                    <p>Precio: $500</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <button onclick="agregarAlCarrito('WOOTING 60HE+ module', 500)">Agregar al Carrito</button>
+                </div>
+                <div class="producto" id="producto5">
+                    <img src="img/WOOTING UwU.png" alt="Producto 5" />
+                    <h3>WOOTING UwU</h3>
+                    <p>Precio: $500</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <button onclick="agregarAlCarrito('WOOTING UwU', 500)">Agregar al Carrito</button>
+                </div>
+        </section>
+
+        <aside id="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito">
+                <!-- Los elementos del carrito se añadirán dinámicamente en este lugar :3 -->
+            </ul>
+            <button onclick="realizarPedido()">Realizar Pedido</button>
+        </aside>
+    </main>
+
+    <script>
+        let carrito = [];
+
+        function agregarAlCarrito(nombre, precio) {
+            const producto = { nombre, precio };
+            carrito.push(producto);
+            mostrarCarrito();
+        }
+
+        function mostrarCarrito() {
+            const listaCarrito = document.getElementById('lista-carrito');
+            listaCarrito.innerHTML = '';
+
+            carrito.forEach((producto) => {
+                const li = document.createElement('li');
+                li.textContent = `${producto.nombre} - Precio: $${producto.precio}`;
+                listaCarrito.appendChild(li);
+            });
+        }
+
+        function realizarPedido() {
+            alert('Pedido realizado con éxito. Gracias por su compra!');
+            carrito = [];
+            mostrarCarrito();
+        }
+    </script>
+</body>
+
+</html>
